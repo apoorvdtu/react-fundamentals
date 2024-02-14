@@ -1,5 +1,7 @@
 <!-- Intro to raw React APIs -->
 <!-- http://localhost:3000/isolated/exercise/02.html -->
+<script src="https://unpkg.com/react@18.1.0/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18.1.0/umd/react-dom.development.js"></script>
 
 <body>
   <div id="root"></div>
@@ -11,19 +13,48 @@
   -->
 
   <script type="module">
+
+
+    // method 1 
+    // const rootElement = document.getElementById('root')
+
+    // // You're going to re-implement this code using React!
+    // // 💣 So go ahead and delete this implementation (or comment it out for now)
+    // // These three lines are similar to React.createElement
+    // const element = document.createElement('div')
+    // element.textContent = 'Hello World' // 💰 in React, you set this with the "children" prop
+    // element.className = 'container' // 💰 in React, this is also called the "className" prop
+    // // This is similar to ReactDOM.createRoot().render()
+    // rootElement.append(element)
+
+    // // 🐨 Please re-implement the regular document.createElement code above
+    // // with these React API calls
+    // // 💰 The example in the markdown file should be a good hint for you.
+
+    // method 2 
+    // const rootElement = document.getElementById('root')
+    // const elementProps = {id: 'element-id', children: 'Hello World'}
+    // const elementType = 'div'
+    // const reactElement = React.createElement(elementType, elementProps)
+    // const root = ReactDOM.createRoot(rootElement)
+    // root.render(reactElement) 
+    // method 3
     const rootElement = document.getElementById('root')
+    const spanElement1Props = {children:'Hello'};
+    const spanElement2Props = {children:'World'};
+    const spanElementType = 'span';
+    const spanElement1 = React.createElement(spanElementType,spanElement1Props);
+    const spanElement2 = React.createElement(spanElementType,spanElement2Props);
 
-    // You're going to re-implement this code using React!
-    // 💣 So go ahead and delete this implementation (or comment it out for now)
-    // These three lines are similar to React.createElement
-    const element = document.createElement('div')
-    element.textContent = 'Hello World' // 💰 in React, you set this with the "children" prop
-    element.className = 'container' // 💰 in React, this is also called the "className" prop
-    // This is similar to ReactDOM.createRoot().render()
-    rootElement.append(element)
-
-    // 🐨 Please re-implement the regular document.createElement code above
-    // with these React API calls
-    // 💰 The example in the markdown file should be a good hint for you.
+    const containerElementProps = {className:'container',children:[spanElement1,' ', spanElement2]};
+    const containerType = 'div';
+    const containerElement = React.createElement(containerType,containerElementProps);
+    const root = ReactDOM.createRoot(rootElement)
+    root.render(containerElement); 
+    // const elementProps = {id: 'element-id', children: 'Hello World'}
+    // const elementType = 'div'
+    // const reactElement = React.createElement(elementType, elementProps)
+    // const root = ReactDOM.createRoot(rootElement)
+    // root.render(reactElement) 
   </script>
 </body>
